@@ -1,38 +1,31 @@
-# Combinação imbatível para desenvolvimento de APIs: NodeJS, TypeScript e MySQL
+## Construção de APIs Poderosas com NodeJS, TypeScript e MySQL
 
-O MySQL se destaca indubitavelmente como uma das escolhas primárias para um banco de dados relacional na stack tecnológica de todos os programadores Node. A habilidade do Node em criar APIs de back-end, combinada com a capacidade do MySQL de lidar com operações de consulta complexas, oferece uma abordagem descomplicada para a construção de back-ends web avançados.
+O MySQL destaca-se como uma escolha principal para bancos de dados relacionais na pilha tecnológica de todos os desenvolvedores NodeJS. A capacidade do Node em criar APIs de backend, combinada com a robustez do MySQL para suportar operações de consulta complexas, oferece uma abordagem descomplicada para o desenvolvimento de backends web avançados.
 
-Neste guia, iremos criar uma API REST básica para uma loja online usando a estrutura Express. O MySQL foi selecionado como nosso banco de dados. Em vez de optar por JavaScript convencional na implementação, escolhemos construir esta API usando TypeScript.
+Neste tutorial, embarcaremos na criação de uma API REST para uma loja online usando o framework Express, com o MySQL como nosso banco de dados escolhido. Optamos por construir esta API em TypeScript, em vez de utilizar o JavaScript tradicional para a implementação.
 
-O suporte a tipos no TypeScript reduz significativamente a margem para utilização incorreta dos tipos. Isso contribui para a redação de um código mais claro e reutilizável. Se você é um iniciante em TypeScript ou deseja relembrar os conceitos da linguagem, consulte nosso guia para desenvolvedores de JavaScript antes de prosseguir.
+O suporte a tipos de script no TypeScript reduz a margem para o uso inadequado de tipos, permitindo-nos escrever um código mais limpo e reutilizável. Se você está iniciando no TypeScript ou deseja relembrar conceitos da linguagem, sugerimos a leitura do nosso guia TypeScript para desenvolvedores JavaScript antes de avançar para a próxima etapa.
 
-## Com a introdução inicial abordada, agora podemos dar início. Antes de começarmos...
+Com a introdução resolvida, vamos começar agora.
 
-Antes de iniciar o tutorial, assegure-se de ter todas as ferramentas necessárias configuradas. Considerando que o Node.js já está instalado, proceda com a instalação do MySQL em seu dispositivo antes de prosseguir.
-Configurar o banco de dados
+### Antes de Iniciar...
 
-Como mencionado anteriormente, estamos desenvolvendo uma API para uma loja online simples, que mantém uma lista de produtos e clientes registrados em seu banco de dados. Os detalhes dos clientes e seus pedidos também são armazenados neste banco de dados quando eles fazem compras.
+Antes de mergulhar no tutorial, certifique-se de que todas as ferramentas necessárias estão configuradas. Presumimos que o Node.js já está instalado; caso contrário, instale-o antes de prosseguir. Certifique-se também de ter o MySQL instalado no seu dispositivo antes de continuar.
 
-No total, o esquema do nosso banco de dados é composto por 3 tabelas: Product, Customer e ProductOrder.
+### Configurando o Banco de Dados
 
-Vou criá-las utilizando consultas SQL convencionais. Caso prefira, você pode utilizar uma ferramenta gráfica para criar o esquema do banco de dados.
+Como mencionado anteriormente, estamos criando uma API para uma loja online simples, armazenando uma lista de produtos e clientes registrados no banco de dados. Quando os clientes fazem pedidos de produtos, os detalhes são armazenados no banco de dados.
 
-Certifique-se de que o servidor MySQL esteja em execução e execute o seguinte comando na linha de comando (Você pode precisar adicionar o MySQL às variáveis de ambiente para usar o comando mysql diretamente).
-```
-mysql -u <username> -p <password>
-```
-Isso abrirá o shell do MySQL, onde é possível executar consultas SQL diretamente no banco de dados.
+O esquema do banco de dados consiste em três tabelas: Product, Customer e ProductOrder.
 
-Agora, podemos criar um novo banco de dados para o nosso projeto.
-```
-create database OnlineStore
-```
-Utilize o comando a seguir para mudar para o banco de dados recém-criado.
-```
-use OnlineStore;
-```
-Em seguida, execute as consultas abaixo para criar as tabelas necessárias.
-```
+```sql
+-- Criação do banco de dados
+CREATE DATABASE OnlineStore;
+
+-- Seleção do banco de dados recém-criado
+USE OnlineStore;
+
+-- Criação das tabelas
 CREATE TABLE Product (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100),
@@ -56,18 +49,11 @@ CREATE TABLE ProductOrder (
     FOREIGN KEY (product_id) REFERENCES Product(id),
     FOREIGN KEY (customer_id) REFERENCES Customer(id)
 );
-```
-Utilize consultas similares às abaixo para inserir alguns dados nas tabelas criadas.
 
-OBSERVAÇÃO: Não é colocado o parâmetro no INSERT INTO pois estamos inserindo todos os parâmetros.
-
-```
-INSERT INTO Product VALUES (1, "Apple MacBook Pro", "15 polegadas, i7, 16GB RAM", 5, 667.00);
-```
-```
-INSERT INTO Customer VALUES (1, "Aluno TDS", "1234", "alunotds@gmail.com");
-```
-```
+-- Exemplo de inserção de dados nas tabelas criadas
+INSERT INTO Product VALUES (1, "Apple MacBook Pro", "15 inch, i7, 16GB RAM", 5, 667.00);
+INSERT INTO Customer VALUES (1, "Anjalee", "2w33he94yg4mx88j9j2hy4uhd32w", "anjalee@gmail.com");
 INSERT INTO ProductOrder VALUES (1, 1, 1, 1);
 ```
-Excelente! Agora o esquema do banco de dados está concluído. Vamos avançar para o Node.js e começar a implementação da API na próxima etapa.
+
+Excelente! Agora o esquema do banco de dados está completo. Podemos prosseguir para o Node.js e começar a implementação da API na próxima etapa.
