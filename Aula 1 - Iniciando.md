@@ -1,4 +1,4 @@
-Combinação imbatível para desenvolvimento de APIs: NodeJS, TypeScript e MySQL
+# Combinação imbatível para desenvolvimento de APIs: NodeJS, TypeScript e MySQL
 
 O MySQL se destaca indubitavelmente como uma das escolhas primárias para um banco de dados relacional na stack tecnológica de todos os programadores Node. A habilidade do Node em criar APIs de back-end, combinada com a capacidade do MySQL de lidar com operações de consulta complexas, oferece uma abordagem descomplicada para a construção de back-ends web avançados.
 
@@ -6,7 +6,7 @@ Neste guia, iremos criar uma API REST básica para uma loja online usando a estr
 
 O suporte a tipos no TypeScript reduz significativamente a margem para utilização incorreta dos tipos. Isso contribui para a redação de um código mais claro e reutilizável. Se você é um iniciante em TypeScript ou deseja relembrar os conceitos da linguagem, consulte nosso guia para desenvolvedores de JavaScript antes de prosseguir.
 
-Com a introdução inicial abordada, agora podemos dar início. Antes de começarmos...
+## Com a introdução inicial abordada, agora podemos dar início. Antes de começarmos...
 
 Antes de iniciar o tutorial, assegure-se de ter todas as ferramentas necessárias configuradas. Considerando que o Node.js já está instalado, proceda com a instalação do MySQL em seu dispositivo antes de prosseguir.
 Configurar o banco de dados
@@ -14,8 +14,6 @@ Configurar o banco de dados
 Como mencionado anteriormente, estamos desenvolvendo uma API para uma loja online simples, que mantém uma lista de produtos e clientes registrados em seu banco de dados. Os detalhes dos clientes e seus pedidos também são armazenados neste banco de dados quando eles fazem compras.
 
 No total, o esquema do nosso banco de dados é composto por 3 tabelas: Product, Customer e ProductOrder.
-Seu guia para criar uma API Restful com NodeJS, TypeScript e MySQL
-Seu guia para criar uma API Restful com NodeJS, TypeScript e MySQL
 
 Vou criá-las utilizando consultas SQL convencionais. Caso prefira, você pode utilizar uma ferramenta gráfica para criar o esquema do banco de dados.
 
@@ -60,11 +58,14 @@ CREATE TABLE ProductOrder (
 );
 ```
 Utilize consultas similares às abaixo para inserir alguns dados nas tabelas criadas.
+
+OBSERVAÇÃO: Não é colocado o parâmetro no INSERT INTO pois estamos inserindo todos os parâmetros.
+
 ```
 INSERT INTO Product VALUES (1, "Apple MacBook Pro", "15 polegadas, i7, 16GB RAM", 5, 667.00);
 ```
 ```
-INSERT INTO Customer VALUES (1, "Anjalee", "2w33he94yg4mx88j9j2hy4uhd32w", "anjalee@gmail.com");
+INSERT INTO Customer VALUES (1, "Aluno TDS", "1234", "alunotds@gmail.com");
 ```
 ```
 INSERT INTO ProductOrder VALUES (1, 1, 1, 1);
