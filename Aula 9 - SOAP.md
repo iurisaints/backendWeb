@@ -78,3 +78,42 @@ req.end();
 **Observação:** Certifique-se de ajustar o código conforme necessário, substituindo os valores de `UserID` e outros conforme o seu serviço.
 
 Ao executar este script ou usar uma ferramenta como SoapUI para fazer uma solicitação, você deve receber a resposta do servidor SOAP com os dados do usuário. Certifique-se de substituir os valores e ajustar conforme necessário com base no seu serviço SOAP específico.
+
+## Exemplos:
+
+1. Estrutura da Mensagem SOAP:
+   ```
+   <soapenv:Envelope xmlns:soapenv="<http://schemas.xmlsoap.org/soap/envelope/>"
+                  xmlns:web="<http://www.example.com/webservice>">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <!-- Dados da mensagem -->
+   </soapenv:Body>
+   </soapenv:Envelope>
+   ```
+2. Exemplo de Chamada de Método Remoto:
+   ```
+   <soapenv:Envelope xmlns:soapenv="<http://schemas.xmlsoap.org/soap/envelope/>"
+                  xmlns:web="<http://www.example.com/webservice>">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetUserInfo>
+         <web:UserID>123</web:UserID>
+      </web:GetUserInfo>
+   </soapenv:Body>
+   </soapenv:Envelope>
+   ```
+3. Exemplo de Resposta:
+   ```
+   <soapenv:Envelope xmlns:soapenv="<http://schemas.xmlsoap.org/soap/envelope/>"
+                  xmlns:web="<http://www.example.com/webservice>">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <web:GetUserInfoResponse>
+         <web:UserName>John Doe</web:UserName>
+         <web:UserEmail>john@example.com</web:UserEmail>
+      </web:GetUserInfoResponse>
+   </soapenv:Body>
+   </soapenv:Envelope>
+   ```
+
