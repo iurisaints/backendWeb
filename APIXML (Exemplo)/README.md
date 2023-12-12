@@ -4,6 +4,10 @@ npm install xml2js
 npm install cors
 npm install express
 ```
+ou apenas baixe essa pasta e:
+```
+npm i
+```
 
 ## Funcionamento:
 
